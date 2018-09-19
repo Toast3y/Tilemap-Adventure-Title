@@ -113,6 +113,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &457911233
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.177
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.174
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541720469033008, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114236715224374230, guid: f28c7b4655cd38749a9c790864b60498,
+        type: 2}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 880202171}
+    - target: {fileID: 114236715224374230, guid: f28c7b4655cd38749a9c790864b60498,
+        type: 2}
+      propertyPath: projectileSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &492263020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,7 +1335,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6999998, y: -2.9, z: -10}
+  m_LocalPosition: {x: -1.0707378, y: -2.3962584, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1327,13 +1379,14 @@ GameObject:
   - component: {fileID: 880202172}
   - component: {fileID: 880202175}
   - component: {fileID: 880202173}
-  - component: {fileID: 880202176}
   - component: {fileID: 880202174}
-  - component: {fileID: 880202177}
   - component: {fileID: 880202178}
+  - component: {fileID: 880202176}
+  - component: {fileID: 880202177}
+  - component: {fileID: 880202179}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1345,7 +1398,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 880202171}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3, y: -5.13, z: 0}
+  m_LocalPosition: {x: -1.029, y: -3.758, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1484,6 +1537,8 @@ MonoBehaviour:
   lastJump: 0
   lastAimBlock: 0
   lastSpecial: 0
+  quarterCircleReadTime: 0.5
+  inputGapReadTime: 0.15
 --- !u!114 &880202177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1514,6 +1569,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &880202179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 880202171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e39a85a749ee64d8bf3a6b425a973e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlasmaBolt: {fileID: 1653802011224924, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
+  maxProjectiles: 3
 --- !u!1 &983259222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1805,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1631998071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3417377, y: -3.7682586, z: -10}
+  m_LocalPosition: {x: -1.0707378, y: -2.3962584, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1853573726}

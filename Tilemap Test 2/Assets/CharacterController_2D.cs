@@ -179,6 +179,7 @@ public class CharacterController_2D : MonoBehaviour {
 		}
 		else if (lastGunAttack == 0f) {
 			Debug.Log("Gun Attack");
+			GunAttackAction();
 		}
 
 	}
@@ -336,6 +337,7 @@ public class CharacterController_2D : MonoBehaviour {
 	}
 
 	private void GunAttackAction() {
+		gameObject.GetComponent<ProjectileSpawnerPlayer>().FireWeapon(flipChar);
 	}
 
 
