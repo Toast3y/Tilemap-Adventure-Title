@@ -7,6 +7,11 @@ public class ProjectileSpawnerPlayer : MonoBehaviour {
 	public GameObject PlasmaBolt;
 
 	public int maxProjectiles = 3;
+
+	public float refireRate = 0.1f;
+
+	public bool refire = false;
+
 	private List<GameObject> projectiles = new List<GameObject>();
 
 	// Use this for initialization
@@ -26,10 +31,11 @@ public class ProjectileSpawnerPlayer : MonoBehaviour {
 	}
 
 	public void FireWeapon(bool flipChar) {
-		if (projectiles.Count < maxProjectiles) {
+		if (projectiles.Count < maxProjectiles && !refire) {
 			GameObject proj = GameObject.Instantiate(PlasmaBolt);
 			proj.GetComponent<PlasmaBolt>().spawner = this.gameObject;
 			projectiles.Add(proj);
+			StartCoroutine("SetRefireTimer");
 
 			if (flipChar) {
 				//Flying Right
@@ -49,5 +55,12 @@ public class ProjectileSpawnerPlayer : MonoBehaviour {
 
 	public void DespawnProjectile(GameObject proj) {
 		projectiles.Remove(proj);
+	}
+
+	IEnumerator SetRefireTimer() {
+		refire = true;
+		yield return new WaitForSeconds(refireRate);
+		refire = false;
+		yield break;
 	}
 }

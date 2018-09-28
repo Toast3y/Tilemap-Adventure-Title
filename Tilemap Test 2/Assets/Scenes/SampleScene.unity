@@ -1384,6 +1384,7 @@ GameObject:
   - component: {fileID: 880202176}
   - component: {fileID: 880202177}
   - component: {fileID: 880202179}
+  - component: {fileID: 880202180}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1539,6 +1540,8 @@ MonoBehaviour:
   lastSpecial: 0
   quarterCircleReadTime: 0.5
   inputGapReadTime: 0.15
+  dashing: 0
+  dashDelay: 0.2
 --- !u!114 &880202177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1582,6 +1585,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlasmaBolt: {fileID: 1653802011224924, guid: f28c7b4655cd38749a9c790864b60498, type: 2}
   maxProjectiles: 3
+  refireRate: 0.1
+  refire: 0
+--- !u!114 &880202180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 880202171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102206f455b91ff49a0574c927b4286c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &983259222
 GameObject:
   m_ObjectHideFlags: 0

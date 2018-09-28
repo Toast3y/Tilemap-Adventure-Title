@@ -69,6 +69,10 @@ public class CharacterController_2D : MonoBehaviour {
 	public float quarterCircleReadTime = 0.500f;
 	public float inputGapReadTime = 0.150f;
 
+	[Header("Dashing Input Timer")]
+	public bool dashing;
+	public float dashDelay = 0.2f;
+
 
 	// Use this for initialization
 	void Start() {
@@ -106,6 +110,22 @@ public class CharacterController_2D : MonoBehaviour {
 
 		ApplyJumpControls();
 
+		//Dash Input test
+
+		if (dashing && Input.GetAxis("Horizontal_DPad") == 0) {
+			//Player let go of controls.
+			dashing = false;
+			Debug.Log("Dash Cancelled");
+		}
+		else if (Input.GetAxis("Horizontal_DPad") != 0) {
+			//Player double tapped to activate the dash input.
+			if ((secondLastLeft <= dashDelay && lastLeft <= dashDelay) || (secondLastRight <= dashDelay && lastRight <= dashDelay)) {
+				dashing = true;
+				Debug.Log("Dash Activated");
+			}
+		}
+
+		
 
 		//Quarter circle test
 		/*if (Input.GetButtonDown("Light Attack")) {
@@ -153,6 +173,7 @@ public class CharacterController_2D : MonoBehaviour {
 	private void ApplyControls() {
 		//Button Priority: Special, AimBlock, Heavy+Gun, Jump, Light, Heavy, Gun
 
+		//Feed into PlayerAttacks or PlayerMovement
 		if (lastSpecial == 0f) {
 			Debug.Log("Special Attack");
 		}
